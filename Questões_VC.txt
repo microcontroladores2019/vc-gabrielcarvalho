@@ -1,0 +1,98 @@
+
+
+
+
+2) 
+
+	1 - D
+	Tem que ser uma memória de dados para a gravação de um log de dados
+	
+	2- D
+	EEPROM é uma memória capaz de gravar dados e que tem grande capacidade para armazena-los, mesmo sendo lenta. Nesse caso, como a gravação é
+	feita a cada 1 seg, a EEPROM tem velocidade suficiente para conseguir gravar esses dados. Como é para consulta futura a memória precisa ser não volátil.
+	
+	3 - E
+	A RAM tem capacidade para armazenar dados que serão utilizados numa dada funcionalidade do microcontrolador
+
+	4 - A 
+	Memória Flash é memória de programa, adequada para gravação de um código de licença.
+
+	5 - C
+	A OTP é uma memória que só é programmável uma vez então, nela são gravados apenas informações informações provenientes do fabricante tais como número de série 
+	e identificador do produto.
+
+
+3) 
+
+	Organização de memória:
+		- 12 registradores de uso geral
+		- Endereçamento linear de memória
+		- Pilha principal e pilha de processos
+		- Full descending stack
+
+	Periféricos:
+		- Periféricos dependem do fabricante da placa. A ARM faz apenas o núcleo.
+
+	Arquitetura:
+		- Não pode ser exatamente classificado como Harvard ou Von Neumann, já
+		  que possui uma matriz de barramentos que se comunica com diferentes
+		  partes do hardware
+		
+	Conjunto de instruções:
+		- RISC
+		- Alta densidade de código gera economia de memória
+		- NVIC: Controle de interrupções aninhado (vetor de interrupções)
+		- Instruções do CORTEX M3 + Instruções DSP (219 instruções)
+		- Thumb2
+		- 32 bit
+
+OBS:    Possui debug configurável
+	Pode ser programado em Assembly, C ou C++
+
+
+	Processador (talvez):
+		- CONRTEX M4
+		- Modo Thread: 
+			. Usados para softwares de aplicação
+			. O processador entra no modo thread quando sai de reset
+			. Registrador CONTROL configura o nível de privilégio
+		- Modo Handler: 
+			. Usado para tratar exceções tais como interrupções ou falhas
+			. O processador retorna ao modo thread quando a exceção termina de ser tratada
+			. Execução sempre em modo privilegiado.
+		- Privilegiado:
+			. Pode usar todas as instruções e tem acesso a todos os recursos.
+			. Pode escrever no registrador CONTROL para mudar nível de privilégio
+			  no modo thread
+		- Não privilegiado:
+			. Acesso limitado a instruções
+			. Não pode acessar o timer,NVIC ou CONTROL
+			. Acesso restrito a memória e periféricos
+			. Tem que usar a instrução SVC para fazer uma supervisor call para 
+			  transferir o controle para software privilegiado.
+
+4) 
+
+	a) 
+		No PIC, quem define se as portas são entradas ou saídas é o registrador TRIS
+		Pegando como exemplo a porta A, temos que fazer TRISA=0000 se estivermos 
+		olhando para RA3:RA0, onde cada um desses bits corresponde a um RA 
+		que queremos como saída.
+		Já no ARM é preciso configurar 7 registradores para que se configure o
+		modo e a velocidade de cada um dos I/O pins
+
+	b) 
+		Na arquitetura ARM, as portas podem ser configuradas como:
+		- Entrada:
+			. Alta impedância
+			. Pull up
+			. Pull Down
+		- Saída:
+			. Open drain
+			. Push-pull
+		- Modo analógico
+		Na arquitetura PIC, as portas podem ser configuradas como
+		entrada ou saída apenas.
+
+
+	
